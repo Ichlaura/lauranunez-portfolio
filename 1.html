@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+
+  <title>Laura Núñez · Software Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000;
+      --text: #f5f5f5;
+      --muted: #a3a3a3;
+      --line: #2b2b2b;
+      --panel: #111;
+      --accent: #f4b6c8;
+
+      --display: "Bricolage Grotesque", "Noto Sans JP",
+        "Hiragino Sans", "Yu Gothic", Meiryo,
+        "Helvetica Neue", Arial, sans-serif;
+
+      --body: "Instrument Sans", "Noto Sans JP",
+        "Hiragino Sans", "Yu Gothic", Meiryo,
+        system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+      box-sizing: border-box;
+      color-scheme: dark;
+    }
+
+    html {
+      height: 100%;
+      background: var(--bg);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100%;
+      margin: 0;
+      overflow: hidden;
+
+      background: var(--bg);
+      color: var(--text);
+
+      font-family: var(--body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+
+      -webkit-font-smoothing: antialiased;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding: clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    #bg {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      display: block;
+    }
+
+    .top,
+    .hero,
+    .menu {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==========================
+       TOP
+    ========================== */
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .clocks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .25rem 1.5rem;
+
+      color: var(--muted);
+      font-size: .9rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .clocks span::before {
+      content: "";
+      display: inline-block;
+
+      width: .5rem;
+      height: .5rem;
+
+      margin-right: .5rem;
+
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .lang {
+      display: flex;
+      gap: .35rem;
+    }
+
+    .lang button {
+      font: inherit;
+      font-size: .85rem;
+      font-weight: 500;
+
+      cursor: pointer;
+
+      color: #cfcfcf;
+
+      background: rgba(0,0,0,.4);
+      border: 1px solid rgba(255,255,255,.3);
+
+      border-radius: 999px;
+      padding: .25rem .7rem;
+
+      backdrop-filter: blur(8px);
+    }
+
+    .lang button[aria-pressed="true"] {
+      background: var(--text);
+      color: #000;
+      border-color: var(--text);
+    }
+
+    /* ==========================
+       HERO
+    ========================== */
+
+    .hero h1 {
+      margin: 0 0 1.25rem;
+
+      font-family: var(--display);
+      font-weight: 800;
+
+      font-size: clamp(3rem, 11vw, 9rem);
+      line-height: .95;
+      letter-spacing: -.04em;
+
+      text-shadow: 0 2px 30px rgba(0,0,0,.35);
+    }
+
+    .hero p {
+      margin: 0;
+
+      max-width: 39ch;
+
+      color: #d9d9d9;
+
+      font-size: clamp(1.05rem, 2vw, 1.4rem);
+    }
+
+    /* ==========================
+       MENU
+    ========================== */
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+    }
+
+    .menu button,
+    .menu a {
+      font: inherit;
+      font-size: .96rem;
+      font-weight: 500;
+
+      cursor: pointer;
+      text-decoration: none;
+
+      color: var(--text);
+
+      background: rgba(0,0,0,.4);
+      backdrop-filter: blur(8px);
+
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 999px;
+
+      padding: .65rem 1.15rem;
+
+      transition:
+        background .15s,
+        color .15s,
+        border-color .15s;
+    }
+
+    .menu button:hover,
+    .menu a:hover {
+      background: var(--text);
+      color: #000;
+      border-color: var(--text);
+    }
+
+    /* ==========================
+       DIALOGS
+    ========================== */
+
+    dialog {
+      position: fixed;
+
+      width: min(700px, calc(100% - 2rem));
+      max-height: min(85vh, 85dvh);
+
+      padding: 0;
+
+      overflow: auto;
+
+      background: rgba(17,17,17,.97);
+      color: var(--text);
+
+      border: 1px solid var(--line);
+      border-radius: 20px;
+
+      box-shadow: 0 30px 100px rgba(0,0,0,.7);
+    }
+
+    dialog::backdrop {
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(5px);
+    }
+
+    dialog[open] {
+      animation: pop .18s ease-out;
+    }
+
+    @keyframes pop {
+      from {
+        opacity: 0;
+        transform: translateY(8px) scale(.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .inner {
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .inner h2 {
+      margin: 0 2.5rem 1.5rem 0;
+
+      font-family: var(--display);
+      font-size: 2rem;
+      line-height: 1.1;
+    }
+
+    .inner h3 {
+      margin: 0 0 .2rem;
+
+      font-family: var(--display);
+      font-size: 1.08rem;
+    }
+
+    .inner p {
+      margin: 0 0 1rem;
+      color: #d2d2d2;
+    }
+
+    .close {
+      position: absolute;
+      top: .9rem;
+      right: .9rem;
+
+      padding: .3rem .85rem;
+
+      font: inherit;
+      font-size: .85rem;
+
+      cursor: pointer;
+
+      color: var(--muted);
+      background: transparent;
+
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+
+    /* ==========================
+       TIMELINE
+    ========================== */
+
+    .steps {
+      display: grid;
+      gap: 1.4rem;
+
+      list-style: none;
+
+      margin: 0;
+      padding: 0 0 0 1.25rem;
+
+      border-left: 2px solid var(--line);
+    }
+
+    .steps li {
+      position: relative;
+    }
+
+    .steps li::before {
+      content: "";
+
+      position: absolute;
+      left: calc(-1.25rem - 6px);
+      top: .5rem;
+
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+      background: var(--line);
+    }
+
+    .steps li.now::before {
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent);
+    }
+
+    .year {
+      display: block;
+
+      margin-bottom: .15rem;
+
+      color: var(--accent);
+
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .steps p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    /* ==========================
+       EXPERIENCE
+    ========================== */
+
+    .experience {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    .job {
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .job:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .meta {
+      margin-bottom: .55rem !important;
+
+      color: var(--accent) !important;
+
+      font-size: .86rem;
+    }
+
+    /* ==========================
+       PROJECTS
+    ========================== */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .8rem;
+    }
+
+    .project {
+      padding: 1rem;
+
+      background: rgba(255,255,255,.035);
+
+      border: 1px solid var(--line);
+      border-radius: 15px;
+    }
+
+    .project p {
+      margin: .3rem 0 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .future {
+      border-color: rgba(244,182,200,.35);
+    }
+
+    .future-label {
+      display: inline-block;
+
+      margin-bottom: .5rem;
+      padding: .12rem .55rem;
+
+      color: #000;
+      background: var(--accent);
+
+      border-radius: 999px;
+
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* ==========================
+       EDUCATION
+    ========================== */
+
+    .education {
+      display: grid;
+      gap: 1.3rem;
+    }
+
+    .education article {
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .education article:last-child {
+      border-bottom: 0;
+    }
+
+    .education p {
+      margin: .2rem 0 0;
+      color: var(--muted);
+    }
+
+    /* ==========================
+       SKILLS
+    ========================== */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+
+      margin-top: 1.4rem;
+    }
+
+    .skill {
+      padding: .28rem .7rem;
+
+      color: #ddd;
+      background: rgba(255,255,255,.05);
+
+      border: 1px solid var(--line);
+      border-radius: 999px;
+
+      font-size: .82rem;
+    }
+
+    .contact-link {
+      font-weight: 600;
+      text-underline-offset: 4px;
+      text-decoration-color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+
+      body {
+        overflow: auto;
+        min-height: 100dvh;
+      }
+
+      .hero {
+        margin: auto 0;
+      }
+
+      .menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .menu button,
+      .menu a {
+        text-align: center;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      dialog[open] {
+        animation: none;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+
+
+<header class="top">
+
+  <div class="clocks">
+    <span id="clockJp"></span>
+    <span id="clockCo"></span>
+  </div>
+
+  <div class="lang">
+    <button data-lang="es" aria-pressed="true">ES</button>
+    <button data-lang="en" aria-pressed="false">EN</button>
+    <button data-lang="ja" aria-pressed="false">日本語</button>
+  </div>
+
+</header>
+
+
+<main class="hero">
+
+  <h1>Laura Núñez</h1>
+
+  <p data-i18n="tagline"></p>
+
+</main>
+
+
+<nav class="menu">
+
+  <button data-open="profile" data-i18n="profile"></button>
+
+  <button data-open="journey" data-i18n="journey"></button>
+
+  <button data-open="experience" data-i18n="experience"></button>
+
+  <button data-open="projects" data-i18n="projects"></button>
+
+  <button data-open="education" data-i18n="education"></button>
+
+  <button data-open="contact" data-i18n="contact"></button>
+
+  <a href="https://github.com/" target="_blank">GitHub</a>
+
+  <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+
+</nav>
+
+
+<!-- =========================
+     PROFILE
+========================== -->
+
+<dialog id="profile">
+
+  <div class="inner">
+
+    <button class="close" data-close data-i18n="close"></button>
+
+    <h2 data-i18n="profile"></h2>
+
+    <p data-i18n="profile1"></p>
+
+    <p data-i18n="profile2"></p>
+
+    <div class="skills">
+
+      <span class="skill">Python</span>
+      <span class="skill">TypeScript</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">React</span>
+      <span class="skill">Next.js</span>
+      <span class="skill">FastAPI</span>
+      <span class="skill">.NET</span>
+      <span class="skill">Playwright</span>
+      <span class="skill">SQL</span>
+      <span class="skill">Supabase</span>
+      <span class="skill">REST APIs</span>
+      <span class="skill">Arduino</span>
+      <span class="skill">MATLAB</span>
+
+    </div>
+
+  </div>
+
+</dialog>
+
+
+<!-- =========================
+     JOURNEY
+========================== -->
+
+<dialog id="journey">
+
+  <div class="inner">
+
+    <button class="close" data-close data-i18n="close"></button>
+
+    <h2 data-i18n="journey"></h2>
+
+    <ol class="steps">
+
+      <li>
+
+        <span class="year">2015 — 2020</span>
+
+        <h3 data-i18n="journey1title"></h3>
+
+        <p data-i18n="journey1"></p>
+
+      </li>
+
+
+      <li>
+
+        <span class="year">2018 — 2021</span>
+
+        <h3 data-i18n="journey2title"></h3>
+
+        <p data-i18n="journey2"></p>
+
+      </li>
+
+
+      <li>
+
+        <span class="year">2020</span>
+
+        <h3>BYU-Pathway Worldwide</h3>
+
+        <p data-i18n="journey3"></p>
+
+      </li>
+
+
+      <li>
+
+        <span class="year">2021 — 2022</span>
+
+        <h3 data-i18n="journey4title"></h3>
+
+        <p data-i18n="journey4"></p>
+
+      </li>
+
+
+      <li>
+
+        <span class="year">May 2022 — Apr 2023</span>
+
+        <h3>Lumos Language School · Utah, USA</h3>
+
+        <p data-i18n="journey5"></p>
+
+      </li>
+
+
+      <li>
+
+        <span class="year">April 2023</span>
+
+        <h3 data-i18n="japanTitle"></h3>
+
+        <p data-i18n="japan"></p>
+
+      </li>
+
+
+      <li>
+
+        <span class="year">2023 — 2026</span>
+
+        <h3>Brigham Young University–Idaho</h3>
+
+        <p data-i18n="journey6"></p>
+
+      </li>
+
+
+      <li class="now">
+
+        <span class="year">2026 — Present</span>
+
+        <h3 data-i18n="journey7title"></h3>
+
+        <p data-i18n="journey7"></p>
+
+      </li>
+
+    </ol>
+
+  </div>
+
+</dialog>
+
+
+<!-- =========================
+     EXPERIENCE
+========================== -->
+
+<dialog id="experience">
+
+  <div class="inner">
+
+    <button class="close" data-close data-i18n="close"></button>
+
+    <h2 data-i18n="experience"></h2>
+
+    <div class="experience">
+
+
+      <article class="job">
+
+        <h3>Delta Careers · Crimson Education</h3>
+
+        <p class="meta">
+          Module Leader · Sep 2026 — Present · Remote
+        </p>
+
+        <p data-i18n="crimson"></p>
+
+      </article>
+
+
+      <article class="job">
+
+        <h3>Dental Care Office</h3>
+
+        <p class="meta">
+          Software Engineer · Mar 2026 — Present · Remote
+        </p>
+
+        <p data-i18n="dco"></p>
+
+        <div class="skills">
+
+          <span class="skill">Python</span>
+          <span class="skill">Playwright</span>
+          <span class="skill">FastAPI</span>
+          <span class="skill">React</span>
+          <span class="skill">.NET</span>
+          <span class="skill">APIs</span>
+
+        </div>
+
+      </article>
+
+
+      <article class="job">
+
+        <h3>Universidad Militar Nueva Granada</h3>
+
+        <p class="meta">
+          Research Assistant · Aug 2021 — Jan 2022
+        </p>
+
+        <p data-i18n="umng"></p>
+
+        <div class="skills">
+
+          <span class="skill">Python</span>
+          <span class="skill">MATLAB</span>
+          <span class="skill">Arduino</span>
+
+        </div>
+
+      </article>
+
+
+      <article class="job">
+
+        <h3>Universidad de los Andes · Epiandes</h3>
+
+        <p class="meta">
+          Research · Jul 2018 — Dec 2021
+        </p>
+
+        <p data-i18n="epiandes"></p>
+
+      </article>
+
+
+      <article class="job">
+
+        <h3>Colegio José Manuel Restrepo</h3>
+
+        <p class="meta">
+          Physics Teacher · Mar 2018 — Nov 2019
+        </p>
+
+        <p data-i18n="teacher"></p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</dialog>
+
+
+<!-- =========================
+     PROJECTS
+========================== -->
+
+<dialog id="projects">
+
+  <div class="inner">
+
+    <button class="close" data-close data-i18n="close"></button>
+
+    <h2 data-i18n="projects"></h2>
+
+    <div class="project-grid">
+
+
+      <article class="project">
+
+        <h3>Web & Apps</h3>
+
+        <p data-i18n="webapps"></p>
+
+      </article>
+
+
+      <article class="project">
+
+        <h3>Automation & Backend</h3>
+
+        <p data-i18n="automation"></p>
+
+      </article>
+
+
+      <article class="project">
+
+        <h3>Robotics & Physical Computing</h3>
+
+        <p data-i18n="robotics"></p>
+
+      </article>
+
+
+      <article class="project">
+
+        <h3>Research & Publications</h3>
+
+        <p data-i18n="research"></p>
+
+      </article>
+
+
+      <article class="project future">
+
+        <span class="future-label" data-i18n="exploring"></span>
+
+        <h3>Machine Learning & AI</h3>
+
+        <p data-i18n="ai"></p>
+
+      </article>
+
+
+      <article class="project future">
+
+        <span class="future-label" data-i18n="exploring"></span>
+
+        <h3>Quantum Computing</h3>
+
+        <p data-i18n="quantum"></p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</dialog>
+
+
+<!-- =========================
+     EDUCATION
+========================== -->
+
+<dialog id="education">
+
+  <div class="inner">
+
+    <button class="close" data-close data-i18n="close"></button>
+
+    <h2 data-i18n="education"></h2>
+
+    <div class="education">
+
+
+      <article>
+
+        <h3>Brigham Young University–Idaho</h3>
+
+        <p>
+          Bachelor of Science in Software Development
+        </p>
+
+        <p>2023 — 2026</p>
+
+      </article>
+
+
+      <article>
+
+        <h3>Universidad Pedagógica Nacional</h3>
+
+        <p>Bachelor's Degree · Physics</p>
+
+        <p>2015 — 2020</p>
+
+        <p data-i18n="scholarship"></p>
+
+      </article>
+
+
+      <article>
+
+        <h3>Lumos Language School</h3>
+
+        <p>English Studies · Utah, United States</p>
+
+        <p>May 2022 — April 2023</p>
+
+      </article>
+
+
+      <article>
+
+        <h3>BYU-Pathway Worldwide</h3>
+
+        <p>English Certificate</p>
+
+        <p>2020</p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</dialog>
+
+
+<!-- =========================
+     CONTACT
+========================== -->
+
+<dialog id="contact">
+
+  <div class="inner">
+
+    <button class="close" data-close data-i18n="close"></button>
+
+    <h2 data-i18n="contact"></h2>
+
+    <p data-i18n="contactText"></p>
+
+    <p>
+      <a class="contact-link" href="mailto:hola@lauranunez.dev">
+        hola@lauranunez.dev
+      </a>
+    </p>
+
+    <p>
+      <a class="contact-link" href="https://github.com/" target="_blank">
+        GitHub
+      </a>
+      &nbsp; · &nbsp;
+      <a class="contact-link" href="https://www.linkedin.com/" target="_blank">
+        LinkedIn
+      </a>
+    </p>
+
+  </div>
+
+</dialog>
+
+
+<script>
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+var T = {
+
+  es: {
+
+    tagline:
+      "Software, física y educación — construyendo desde Japón para el mundo.",
+
+    profile: "Perfil",
+    journey: "Trayectoria",
+    experience: "Experiencia",
+    projects: "Proyectos",
+    education: "Educación",
+    contact: "Contacto",
+    close: "Cerrar",
+
+    profile1:
+      "Laura Núñez es desarrolladora de software, educadora y física colombiana radicada en Japón. Su formación interdisciplinaria conecta ciencia, programación, investigación y educación.",
+
+    profile2:
+      "Actualmente desarrolla aplicaciones web y sistemas de automatización, mientras trabaja como mentora tecnológica con estudiantes internacionales. Su interés profesional continúa evolucionando hacia inteligencia artificial, robótica y nuevas áreas de computación.",
+
+    journey1title:
+      "Física & Educación",
+
+    journey1:
+      "Formación en Física en la Universidad Pedagógica Nacional de Colombia.",
+
+    journey2title:
+      "Enseñanza & Investigación",
+
+    journey2:
+      "Experiencia en educación en física, investigación y análisis de datos.",
+
+    journey3:
+      "English Certificate y preparación académica internacional.",
+
+    journey4title:
+      "Investigación & Tecnología",
+
+    journey4:
+      "Trabajo con Python, MATLAB, Arduino y proyectos de investigación.",
+
+    journey5:
+      "Estudios de inglés y experiencia internacional en Utah, Estados Unidos.",
+
+    japanTitle:
+      "Japón",
+
+    japan:
+      "Se trasladó a Japón, desde donde continúa desarrollando su carrera internacional.",
+
+    journey6:
+      "Bachelor of Science in Software Development.",
+
+    journey7title:
+      "Software Engineering & Technology",
+
+    journey7:
+      "Desarrollo full-stack, automatización y mentoría tecnológica internacional.",
+
+    crimson:
+      "Mentora tecnológica para estudiantes que desarrollan proyectos propios, acompañándolos desde la definición del problema y la planificación hasta la creación de prototipos y aplicaciones funcionales.",
+
+    dco:
+      "Diseña y desarrolla un sistema modular full-stack para automatizar procesos de verificación de seguros dentales, integrando automatización, APIs, procesamiento de datos y frontend.",
+
+    umng:
+      "Participó en proyectos de investigación trabajando con Python, MATLAB y Arduino.",
+
+    epiandes:
+      "Apoyó proyectos de investigación epidemiológica mediante recolección, validación y análisis estructurado de datos y elaboración de reportes.",
+
+    teacher:
+      "Diseñó e impartió clases estructuradas de física como parte de su formación profesional docente.",
+
+    webapps:
+      "Aplicaciones y experiencias web desarrolladas con React, Next.js, TypeScript, Vite, Supabase y otras tecnologías modernas.",
+
+    automation:
+      "Automatización de procesos, APIs y sistemas backend utilizando Python, Playwright, FastAPI y herramientas de procesamiento de datos.",
+
+    robotics:
+      "Experiencia académica con Arduino y computación física. Esta colección crecerá con nuevos proyectos de robótica.",
+
+    research:
+      "Incluye investigación académica y su trabajo sobre una estrategia didáctica para fomentar el aprendizaje autónomo en las clases de física.",
+
+    exploring:
+      "En desarrollo",
+
+    ai:
+      "Área de crecimiento profesional enfocada en Machine Learning, inteligencia artificial y aplicaciones inteligentes.",
+
+    quantum:
+      "Área futura de estudio que conecta su formación en física con software y nuevas tecnologías computacionales.",
+
+    scholarship:
+      "Academic Excellence Scholarship.",
+
+    contactText:
+      "Para colaboraciones, oportunidades profesionales o desarrollo de soluciones digitales, puede contactar a Laura aquí."
+
+  },
+
+
+  en: {
+
+    tagline:
+      "Software, physics and education — building from Japan for the world.",
+
+    profile: "Profile",
+    journey: "Journey",
+    experience: "Experience",
+    projects: "Projects",
+    education: "Education",
+    contact: "Contact",
+    close: "Close",
+
+    profile1:
+      "Laura Núñez is a Colombian software developer, educator and physicist based in Japan. Her interdisciplinary background connects science, programming, research and education.",
+
+    profile2:
+      "She currently develops web applications and automation systems while working as a technology mentor with international students. Her professional interests continue to expand toward artificial intelligence, robotics and emerging areas of computing.",
+
+    journey1title:
+      "Physics & Education",
+
+    journey1:
+      "Physics studies at Universidad Pedagógica Nacional in Colombia.",
+
+    journey2title:
+      "Teaching & Research",
+
+    journey2:
+      "Experience in physics education, academic research and data analysis.",
+
+    journey3:
+      "English Certificate and international academic preparation.",
+
+    journey4title:
+      "Research & Technology",
+
+    journey4:
+      "Research work involving Python, MATLAB and Arduino.",
+
+    journey5:
+      "English studies and international experience in Utah, United States.",
+
+    japanTitle:
+      "Japan",
+
+    japan:
+      "Relocated to Japan and continued building an international career in technology.",
+
+    journey6:
+      "Bachelor of Science in Software Development.",
+
+    journey7title:
+      "Software Engineering & Technology",
+
+    journey7:
+      "Full-stack development, automation and international technology mentoring.",
+
+    crimson:
+      "Technology mentor supporting students as they develop their own projects, from problem definition and planning to prototypes and functional applications.",
+
+    dco:
+      "Designs and develops a modular full-stack system for dental insurance verification automation, integrating automation workflows, APIs, data processing and frontend development.",
+
+    umng:
+      "Contributed to research projects using Python, MATLAB and Arduino.",
+
+    epiandes:
+      "Supported epidemiological research through structured data collection, validation, analysis and reporting.",
+
+    teacher:
+      "Designed and delivered structured physics lessons as part of professional teacher training.",
+
+    webapps:
+      "Web applications and digital experiences built with React, Next.js, TypeScript, Vite, Supabase and other modern technologies.",
+
+    automation:
+      "Process automation, APIs and backend systems using Python, Playwright, FastAPI and data-processing tools.",
+
+    robotics:
+      "Academic experience with Arduino and physical computing, with additional robotics projects planned.",
+
+    research:
+      "Academic research including work on a didactic strategy designed to foster autonomous learning in physics education.",
+
+    exploring:
+      "Exploring",
+
+    ai:
+      "A growing professional focus on machine learning, artificial intelligence and intelligent applications.",
+
+    quantum:
+      "A future area of study connecting her physics background with software and emerging computational technologies.",
+
+    scholarship:
+      "Academic Excellence Scholarship.",
+
+    contactText:
+      "For collaborations, professional opportunities or digital development projects, contact Laura here."
+
+  },
+
+
+  ja: {
+
+    tagline:
+      "ソフトウェア、物理、教育。日本から世界へ。",
+
+    profile: "プロフィール",
+    journey: "経歴",
+    experience: "職歴",
+    projects: "プロジェクト",
+    education: "学歴",
+    contact: "お問い合わせ",
+    close: "閉じる",
+
+    profile1:
+      "Laura Núñezは、日本を拠点に活動するコロンビア出身のソフトウェア開発者、教育者、物理学の専門家です。科学、プログラミング、研究、教育を組み合わせた学際的なバックグラウンドを持っています。",
+
+    profile2:
+      "現在はWebアプリケーションや自動化システムを開発しながら、海外の学生にテクノロジー分野のメンタリングを行っています。今後はAI、ロボティクス、新しいコンピューティング分野にも専門性を広げています。",
+
+    journey1title: "物理・教育",
+    journey1: "コロンビアのUniversidad Pedagógica Nacionalで物理学を専攻。",
+
+    journey2title: "教育・研究",
+    journey2: "物理教育、研究、データ分析の経験。",
+
+    journey3: "英語プログラムと国際的な学習経験。",
+
+    journey4title: "研究・テクノロジー",
+    journey4: "Python、MATLAB、Arduinoを使用した研究。",
+
+    journey5:
+      "アメリカ・ユタ州で英語を学び、国際的な経験を積む。",
+
+    japanTitle: "日本",
+
+    japan:
+      "日本へ移住し、国際的なテクノロジーキャリアを継続。",
+
+    journey6:
+      "Software DevelopmentのBachelor of Science。",
+
+    journey7title:
+      "Software Engineering & Technology",
+
+    journey7:
+      "フルスタック開発、自動化、国際的なテクノロジーメンタリング。",
+
+    crimson:
+      "学生のテクノロジープロジェクトを、アイデアの整理からプロトタイプ、実際に動くアプリケーションまでサポートしています。",
+
+    dco:
+      "歯科保険確認プロセスを自動化するフルスタックシステムを開発。Python、FastAPI、Reactなどを活用しています。",
+
+    umng:
+      "Python、MATLAB、Arduinoを使用した研究プロジェクトに参加。",
+
+    epiandes:
+      "疫学研究におけるデータ収集、検証、分析、レポート作成を支援。",
+
+    teacher:
+      "教員養成の一環として物理の授業を設計・実施。",
+
+    webapps:
+      "React、Next.js、TypeScript、Vite、Supabaseなどを使用したWebアプリケーション開発。",
+
+    automation:
+      "Python、Playwright、FastAPIを使用した自動化、API、バックエンド開発。",
+
+    robotics:
+      "Arduinoとフィジカルコンピューティングの経験。今後ロボティクスプロジェクトを追加予定。",
+
+    research:
+      "物理教育における自律学習を促進する教育戦略などの研究。",
+
+    exploring:
+      "研究・学習中",
+
+    ai:
+      "Machine LearningとAIを今後の専門分野として発展中。",
+
+    quantum:
+      "物理学とソフトウェアをつなぐ将来の研究分野として量子コンピューティングを探究。",
+
+    scholarship:
+      "Academic Excellence Scholarship.",
+
+    contactText:
+      "共同プロジェクト、仕事の機会、デジタル開発についてはこちらからお問い合わせください。"
+
+  }
+
+};
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+var lang = "es";
+
+try {
+
+  var saved = localStorage.getItem("lang");
+
+  if (saved && T[saved]) {
+
+    lang = saved;
+
+  } else {
+
+    var browser =
+      (navigator.language || "es").slice(0,2);
+
+    if (T[browser]) {
+      lang = browser;
+    }
+
+  }
+
+} catch(e) {}
+
+
+function setLang(l) {
+
+  lang = l;
+
+  document.documentElement.lang = l;
+
+  document.querySelectorAll("[data-i18n]").forEach(function(el) {
+
+    var key = el.getAttribute("data-i18n");
+
+    if (T[l][key]) {
+      el.textContent = T[l][key];
+    }
+
+  });
+
+  document.querySelectorAll("[data-lang]").forEach(function(btn) {
+
+    btn.setAttribute(
+      "aria-pressed",
+      btn.getAttribute("data-lang") === l
+        ? "true"
+        : "false"
+    );
+
+  });
+
+  try {
+    localStorage.setItem("lang", l);
+  } catch(e) {}
+
+  tick();
+
+}
+
+
+document.querySelectorAll("[data-lang]").forEach(function(btn) {
+
+  btn.addEventListener("click", function() {
+
+    setLang(
+      btn.getAttribute("data-lang")
+    );
+
+  });
+
+});
+
+
+/* =====================================================
+   CLOCKS
+===================================================== */
+
+function tick() {
+
+  var locale =
+    lang === "ja"
+      ? "ja"
+      : lang === "en"
+      ? "en"
+      : "es";
+
+  function time(tz) {
+
+    return new Intl.DateTimeFormat(
+      locale,
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+        timeZone: tz
+      }
+    ).format(new Date());
+
+  }
+
+  document.getElementById("clockJp").textContent =
+    (lang === "ja" ? "日本" : lang === "en" ? "Japan" : "Japón")
+    + " "
+    + time("Asia/Tokyo");
+
+  document.getElementById("clockCo").textContent =
+    "Bogotá "
+    + time("America/Bogota");
+
+}
+
+
+/* =====================================================
+   DIALOGS
+===================================================== */
+
+document.querySelectorAll("[data-open]").forEach(function(btn) {
+
+  btn.addEventListener("click", function() {
+
+    var dialog =
+      document.getElementById(
+        btn.getAttribute("data-open")
+      );
+
+    if (dialog) {
+      dialog.showModal();
+    }
+
+  });
+
+});
+
+
+document.querySelectorAll("dialog").forEach(function(dialog) {
+
+  dialog.addEventListener("click", function(e) {
+
+    if (e.target === dialog) {
+      dialog.close();
+    }
+
+  });
+
+  dialog.querySelectorAll("[data-close]").forEach(function(btn) {
+
+    btn.addEventListener("click", function() {
+
+      dialog.close();
+
+    });
+
+  });
+
+});
+
+
+setLang(lang);
+setInterval(tick, 30000);
+
+
+/* =====================================================
+   ANIMATED BACKGROUND
+===================================================== */
+
+(function () {
+
+  var cv = document.getElementById("bg");
+  var ctx = cv.getContext("2d");
+
+  var W = 0;
+  var H = 0;
+  var dpr = 1;
+
+  var reduce =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+  var mouse = {
+    x: .5,
+    y: .5,
+    tx: .5,
+    ty: .5
+  };
+
+
+  var chains = [
+
+    {
+      kind: "circle",
+      r: .16,
+      speed: 1,
+      color: [255,77,141]
+    },
+
+    {
+      kind: "circle",
+      r: .26,
+      speed: -.8,
+      color: [255,176,32]
+    },
+
+    {
+      kind: "circle",
+      r: .36,
+      speed: .62,
+      color: [25,211,197]
+    },
+
+    {
+      kind: "circle",
+      r: .46,
+      speed: -.5,
+      color: [124,92,255]
+    },
+
+    {
+      kind: "ellipse",
+      rx: .46,
+      ry: .27,
+      tilt: .45,
+      speed: .55,
+      color: [59,130,246]
+    },
+
+    {
+      kind: "ellipse",
+      rx: .40,
+      ry: .36,
+      tilt: -.55,
+      speed: -.45,
+      color: [244,182,200]
+    }
+
+  ];
+
+
+  var DOTS = 20;
+
+
+  function resize() {
+
+    dpr =
+      Math.min(
+        window.devicePixelRatio || 1,
+        2
+      );
+
+    W = window.innerWidth;
+    H = window.innerHeight;
+
+    cv.width = W * dpr;
+    cv.height = H * dpr;
+
+    ctx.setTransform(
+      dpr,0,0,dpr,0,0
+    );
+
+  }
+
+
+  function dot(x,y,rad,c,a) {
+
+    var g =
+      ctx.createRadialGradient(
+        x,y,0,
+        x,y,rad * 3.2
+      );
+
+    g.addColorStop(
+      0,
+      "rgba(" +
+      c[0] + "," +
+      c[1] + "," +
+      c[2] + "," +
+      a + ")"
+    );
+
+    g.addColorStop(
+      .3,
+      "rgba(" +
+      c[0] + "," +
+      c[1] + "," +
+      c[2] + "," +
+      (a * .55) + ")"
+    );
+
+    g.addColorStop(
+      1,
+      "rgba(" +
+      c[0] + "," +
+      c[1] + "," +
+      c[2] +
+      ",0)"
+    );
+
+    ctx.fillStyle = g;
+
+    ctx.beginPath();
+
+    ctx.arc(
+      x,
+      y,
+      rad * 3.2,
+      0,
+      Math.PI * 2
+    );
+
+    ctx.fill();
+
+  }
+
+
+  function draw(t) {
+
+    mouse.x +=
+      (mouse.tx - mouse.x) * .04;
+
+    mouse.y +=
+      (mouse.ty - mouse.y) * .04;
+
+
+    ctx.globalCompositeOperation =
+      "source-over";
+
+    ctx.fillStyle = "#000";
+
+    ctx.fillRect(
+      0,0,W,H
+    );
+
+
+    ctx.globalCompositeOperation =
+      "lighter";
+
+
+    var m =
+      Math.min(W,H);
+
+    var cx =
+      W * .5 +
+      (mouse.x - .5) *
+      W *
+      .06;
+
+    var cy =
+      H * .5 +
+      (mouse.y - .5) *
+      H *
+      .06;
+
+    var spacing =
+      m * .045;
+
+    var head =
+      Math.max(
+        5,
+        m * .014
+      );
+
+
+    chains.forEach(function(ch) {
+
+      var rx;
+      var ry;
+
+      var tilt =
+        ch.tilt || 0;
+
+
+      if (ch.kind === "circle") {
+
+        rx = ry =
+          ch.r * m;
+
+      } else {
+
+        rx =
+          ch.rx * W;
+
+        ry =
+          ch.ry * H;
+
+      }
+
+
+      var gap =
+        spacing /
+        Math.max(rx,ry);
+
+      var dir =
+        ch.speed < 0
+          ? -1
+          : 1;
+
+      var base =
+        ch.speed * t;
+
+      var ct =
+        Math.cos(tilt);
+
+      var st =
+        Math.sin(tilt);
+
+
+      for (
+        var i = DOTS - 1;
+        i >= 0;
+        i--
+      ) {
+
+        var ang =
+          base -
+          dir *
+          i *
+          gap;
+
+        var ex =
+          rx *
+          Math.cos(ang);
+
+        var ey =
+          ry *
+          Math.sin(ang);
+
+        var x =
+          cx +
+          ex * ct -
+          ey * st;
+
+        var y =
+          cy +
+          ex * st +
+          ey * ct;
+
+        var f =
+          1 -
+          i / DOTS;
+
+
+        dot(
+          x,
+          y,
+          head *
+          (.25 + .75 * f),
+          ch.color,
+          .25 + .65 * f
+        );
+
+      }
+
+    });
+
+  }
+
+
+  var running = true;
+
+
+  function frame(now) {
+
+    if (!running) return;
+
+    draw(
+      now / 1000
+    );
+
+    requestAnimationFrame(
+      frame
+    );
+
+  }
+
+
+  window.addEventListener(
+    "resize",
+    function() {
+
+      resize();
+
+      if (reduce) {
+        draw(0);
+      }
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pointermove",
+    function(e) {
+
+      mouse.tx =
+        e.clientX / W;
+
+      mouse.ty =
+        e.clientY / H;
+
+    }
+  );
+
+
+  document.addEventListener(
+    "visibilitychange",
+    function() {
+
+      running =
+        !document.hidden;
+
+      if (
+        running &&
+        !reduce
+      ) {
+
+        requestAnimationFrame(
+          frame
+        );
+
+      }
+
+    }
+  );
+
+
+  resize();
+
+
+  if (reduce) {
+
+    draw(0);
+
+  } else {
+
+    requestAnimationFrame(
+      frame
+    );
+
+  }
+
+})();
+
+</script>
+
+</body>
+</html>

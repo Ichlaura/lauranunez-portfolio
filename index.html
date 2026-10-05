@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Laura Núñez | Software Developer &amp; Physicist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main class="hero" id="hero">
+
+    <canvas class="chains" id="chains" aria-hidden="true"></canvas>
+
+    <div class="hero-content">
+
+      <div class="top-row">
+
+        <div class="time-zone">
+          <span><i></i><span data-i18n="jp">Japan</span><strong id="japanTime">--:--</strong></span>
+          <span><i></i><span data-i18n="co">Bogotá</span><strong id="bogotaTime">--:--</strong></span>
+          <span><i></i><span data-i18n="ut">Utah</span><strong id="utahTime">--:--</strong></span>
+        </div>
+
+        <div class="language-switcher" role="group" aria-label="Language / Idioma / 言語">
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang="ja" aria-pressed="false">日本語</button>
+        </div>
+
+      </div>
+
+      <section class="intro">
+
+        <h1>Laura Núñez</h1>
+
+        <p class="tagline" data-i18n="tagline"></p>
+
+        <nav class="main-nav">
+
+          <button class="nav-btn" data-modal="profileModal" data-i18n="nav_profile"></button>
+          <button class="nav-btn" data-modal="experienceModal" data-i18n="nav_exp"></button>
+          <button class="nav-btn" data-modal="projectsModal" data-i18n="nav_proj"></button>
+          <button class="nav-btn" data-modal="educationModal" data-i18n="nav_edu"></button>
+          <button class="nav-btn" data-modal="contactModal" data-i18n="nav_contact"></button>
+
+          <a
+            class="nav-btn nav-link"
+            href="https://github.com/Ichlaura"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            class="nav-btn nav-link"
+            href="https://www.linkedin.com/in/laupao41/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+        </nav>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================
+       PROFILE
+  ========================== -->
+
+  <div class="modal" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+
+    <div class="modal-box">
+
+      <button class="close-modal" data-i18n-aria="close" aria-label="Close">×</button>
+
+      <span class="section-number" data-i18n="sn_profile"></span>
+
+      <h2 id="profileTitle">Laura Núñez</h2>
+
+      <p class="large-text" data-i18n="prof_lead"></p>
+
+      <p data-i18n="prof_p1"></p>
+
+      <p data-i18n="prof_p2"></p>
+
+      <div class="profile-grid">
+
+        <div>
+          <span data-i18n="g_based"></span>
+          <strong data-i18n="g_based_v"></strong>
+        </div>
+
+        <div>
+          <span data-i18n="g_fields"></span>
+          <strong data-i18n="g_fields_v"></strong>
+        </div>
+
+        <div>
+          <span data-i18n="g_lang"></span>
+          <strong data-i18n="g_lang_v"></strong>
+        </div>
+
+        <div>
+          <span data-i18n="g_focus"></span>
+          <strong data-i18n="g_focus_v"></strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       EXPERIENCE
+  ========================== -->
+
+  <div class="modal" id="experienceModal" role="dialog" aria-modal="true" aria-labelledby="expTitle">
+
+    <div class="modal-box modal-wide">
+
+      <button class="close-modal" data-i18n-aria="close" aria-label="Close">×</button>
+
+      <span class="section-number" data-i18n="sn_exp"></span>
+
+      <h2 id="expTitle" data-i18n="h_exp"></h2>
+
+      <div class="timeline">
+
+        <article class="timeline-item">
+          <div class="timeline-date" data-i18n="e1_date"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="e1_title"></h3>
+            <h4 data-i18n="e1_org"></h4>
+            <p data-i18n="e1_desc"></p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date" data-i18n="e2_date"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="e2_title"></h3>
+            <h4 data-i18n="e2_org"></h4>
+            <p data-i18n="e2_d1"></p>
+            <p data-i18n="e2_d2"></p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date" data-i18n="e3_date"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="e3_title"></h3>
+            <h4 data-i18n="e3_org"></h4>
+            <p data-i18n="e3_desc"></p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date" data-i18n="e4_date"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="e4_title"></h3>
+            <h4>Universidad Militar Nueva Granada</h4>
+            <p data-i18n="e4_desc"></p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date" data-i18n="e5_date"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="e5_title"></h3>
+            <h4 data-i18n="e5_org"></h4>
+            <p data-i18n="e5_desc"></p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date" data-i18n="e6_date"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="e6_title"></h3>
+            <h4 data-i18n="e6_org"></h4>
+            <p data-i18n="e6_desc"></p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       PROJECTS
+  ========================== -->
+
+  <div class="modal" id="projectsModal" role="dialog" aria-modal="true" aria-labelledby="projTitle">
+
+    <div class="modal-box modal-projects">
+
+      <button class="close-modal" data-i18n-aria="close" aria-label="Close">×</button>
+
+      <span class="section-number" data-i18n="sn_proj"></span>
+
+      <h2 id="projTitle" data-i18n="h_proj"></h2>
+
+      <p class="projects-intro" data-i18n="proj_intro"></p>
+
+
+      <div class="project-category">
+
+        <div class="category-heading">
+          <span>01</span>
+          <h3 data-i18n="cat1"></h3>
+        </div>
+
+        <div class="project-grid">
+
+          <a class="project-card" href="https://dco-automation-web.vercel.app/login" target="_blank" rel="noopener noreferrer">
+            <div class="project-top">
+              <span data-i18n="p1_tag"></span>
+              <b>↗</b>
+            </div>
+            <h4>DCO Automation</h4>
+            <p data-i18n="p1_d"></p>
+            <div class="tech">Python · Playwright · FastAPI · React · .NET</div>
+            <div class="project-action" data-i18n="p1_a"></div>
+          </a>
+
+          <a class="project-card" href="https://lds-directory-colombia.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <div class="project-top">
+              <span data-i18n="p2_tag"></span>
+              <b>↗</b>
+            </div>
+            <h4 data-i18n="p2_t"></h4>
+            <p data-i18n="p2_d"></p>
+            <div class="tech">React · UI/UX · Search · Responsive Web</div>
+            <div class="project-action" data-i18n="p2_a"></div>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="project-category">
+
+        <div class="category-heading">
+          <span>02</span>
+          <h3 data-i18n="cat2"></h3>
+        </div>
+
+        <div class="project-grid">
+
+          <a class="project-card featured-project" href="https://adelina-invitations.vercel.app/invitation/ruby-fiallo-nunez" target="_blank" rel="noopener noreferrer">
+            <div class="project-top">
+              <span data-i18n="p3_tag"></span>
+              <b>↗</b>
+            </div>
+            <h4 data-i18n="p3_t"></h4>
+            <p data-i18n="p3_d"></p>
+            <div class="tech">React · TypeScript · Supabase · Responsive UI</div>
+            <div class="project-action" data-i18n="p3_a"></div>
+          </a>
+
+          <a class="project-card" href="https://adelina-invitations.vercel.app/backoffice" target="_blank" rel="noopener noreferrer">
+            <div class="project-top">
+              <span data-i18n="p4_tag"></span>
+              <b>↗</b>
+            </div>
+            <h4 data-i18n="p4_t"></h4>
+            <p data-i18n="p4_d"></p>
+            <div class="tech">React · Supabase · Admin UI · Data Management</div>
+            <div class="project-action" data-i18n="p4_a"></div>
+          </a>
+
+          <a class="project-card" href="https://adeline-website-six.vercel.app/back" target="_blank" rel="noopener noreferrer">
+            <div class="project-top">
+              <span data-i18n="p5_tag"></span>
+              <b>↗</b>
+            </div>
+            <h4 data-i18n="p5_t"></h4>
+            <p data-i18n="p5_d"></p>
+            <div class="tech">React · Vite · TypeScript · Web Design</div>
+            <div class="project-action" data-i18n="p5_a"></div>
+          </a>
+
+          <a class="project-card" href="https://adelina-invitations.vercel.app/invitation/una-noche-de-espantos" target="_blank" rel="noopener noreferrer">
+            <div class="project-top">
+              <span data-i18n="p6_tag"></span>
+              <b>↗</b>
+            </div>
+            <h4 data-i18n="p6_t"></h4>
+            <p data-i18n="p6_d"></p>
+            <div class="tech">React · Animation · Responsive Design</div>
+            <div class="project-action" data-i18n="p6_a"></div>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="project-category">
+
+        <div class="category-heading">
+          <span>03</span>
+          <h3 data-i18n="cat3"></h3>
+        </div>
+
+        <div class="project-grid">
+
+          <a class="project-card" href="https://repositorio.upn.edu.co/items/59743ebd-1e35-4e17-b740-861f596ebc2e" target="_blank" rel="noopener noreferrer">
+            <div class="project-top">
+              <span data-i18n="p7_tag"></span>
+              <b>↗</b>
+            </div>
+            <h4 data-i18n="p7_t"></h4>
+            <p data-i18n="p7_d"></p>
+            <div class="tech">Physics · Education · Research</div>
+            <div class="project-action" data-i18n="p7_a"></div>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="project-category">
+
+        <div class="category-heading">
+          <span>04</span>
+          <h3 data-i18n="cat4"></h3>
+        </div>
+
+        <div class="project-grid">
+
+          <div class="project-card non-link">
+            <div class="project-top">
+              <span data-i18n="p8_tag"></span>
+              <b>AI</b>
+            </div>
+            <h4 data-i18n="p8_t"></h4>
+            <p data-i18n="p8_d"></p>
+            <div class="tech">MATLAB · Deep Learning · Neural Networks</div>
+          </div>
+
+          <div class="project-card non-link">
+            <div class="project-top">
+              <span data-i18n="p9_tag"></span>
+              <b>R&amp;D</b>
+            </div>
+            <h4 data-i18n="p9_t"></h4>
+            <p data-i18n="p9_d"></p>
+            <div class="tech">Arduino · Python · MATLAB · Physics</div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="project-footer">
+
+        <p data-i18n="foot_p"></p>
+
+        <a href="https://github.com/Ichlaura" target="_blank" rel="noopener noreferrer">
+          GitHub / Ichlaura ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       EDUCATION
+  ========================== -->
+
+  <div class="modal" id="educationModal" role="dialog" aria-modal="true" aria-labelledby="eduTitle">
+
+    <div class="modal-box modal-wide">
+
+      <button class="close-modal" data-i18n-aria="close" aria-label="Close">×</button>
+
+      <span class="section-number" data-i18n="sn_edu"></span>
+
+      <h2 id="eduTitle" data-i18n="h_edu"></h2>
+
+      <div class="timeline education-timeline">
+
+        <article class="timeline-item">
+          <div class="timeline-date">2023 — 2026</div>
+          <div class="timeline-content">
+            <h3 data-i18n="ed1_t"></h3>
+            <h4>Brigham Young University–Idaho</h4>
+            <p data-i18n="ed1_d"></p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date">2022 — 2023</div>
+          <div class="timeline-content">
+            <h3 data-i18n="ed2_t"></h3>
+            <h4 data-i18n="e3_org"></h4>
+            <p data-i18n="ed2_d"></p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date">2020</div>
+          <div class="timeline-content">
+            <h3 data-i18n="ed3_t"></h3>
+            <h4>BYU–Pathway Worldwide</h4>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date">2015 — 2020</div>
+          <div class="timeline-content">
+            <h3 data-i18n="ed4_t"></h3>
+            <h4 data-i18n="ed4_o"></h4>
+            <p data-i18n="ed4_d"></p>
+          </div>
+        </article>
+
+      </div>
+
+
+      <div class="certificate-area">
+
+        <h3 data-i18n="add_h"></h3>
+
+        <div class="certificate-grid">
+
+          <div class="certificate-card">
+            <span>BYU–IDAHO</span>
+            <strong data-i18n="c1_t"></strong>
+          </div>
+
+          <div class="certificate-card">
+            <span>MATHWORKS</span>
+            <strong>Deep Learning Onramp</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       CONTACT
+  ========================== -->
+
+  <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+
+    <div class="modal-box">
+
+      <button class="close-modal" data-i18n-aria="close" aria-label="Close">×</button>
+
+      <span class="section-number" data-i18n="sn_contact"></span>
+
+      <h2 id="contactTitle" data-i18n="h_contact"></h2>
+
+      <p class="large-text" data-i18n="contact_p"></p>
+
+      <div class="contact-links">
+
+        <a href="https://github.com/Ichlaura" target="_blank" rel="noopener noreferrer">
+          GitHub
+          <span>↗</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/laupao41/" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    /* -------------------------
+       TRANSLATIONS  [EN, ES, JA]
+    ------------------------- */
+
+    const LANG_INDEX = { en: 0, es: 1, ja: 2 };
+
+    const I = {
+
+      title: ["Laura Núñez | Software Developer & Physicist", "Laura Núñez | Desarrolladora de software y física", "Laura Núñez | ソフトウェア開発者・物理学者"],
+
+      tagline: [
+        "Software, physics and education — building from Japan for the world.",
+        "Software, física y educación — construyendo desde Japón para el mundo.",
+        "ソフトウェア、物理学、教育 — 日本から世界へ。"
+      ],
+
+      jp: ["Japan", "Japón", "日本"],
+      co: ["Bogotá", "Bogotá", "ボゴタ"],
+      ut: ["Utah", "Utah", "ユタ"],
+
+      nav_profile: ["Profile", "Perfil", "プロフィール"],
+      nav_exp: ["Experience", "Experiencia", "職歴"],
+      nav_proj: ["Projects", "Proyectos", "プロジェクト"],
+      nav_edu: ["Education", "Educación", "学歴"],
+      nav_contact: ["Contact", "Contacto", "お問い合わせ"],
+      close: ["Close", "Cerrar", "閉じる"],
+
+      /* Profile */
+      sn_profile: ["01 / PROFILE", "01 / PERFIL", "01 / プロフィール"],
+      prof_lead: [
+        "Laura Núñez is a software developer, physicist and educator working at the intersection of technology, science and education.",
+        "Laura Núñez es desarrolladora de software, física y educadora, y trabaja en la intersección entre tecnología, ciencia y educación.",
+        "Laura Núñezは、テクノロジー・科学・教育の交差点で活動するソフトウェア開発者であり、物理学者であり、教育者である。"
+      ],
+      prof_p1: [
+        "Her professional background combines software development, automation, physics, research and teaching. She develops digital products and automation systems while continuing to expand her work toward artificial intelligence, machine learning, robotics and computational science.",
+        "Su trayectoria profesional combina el desarrollo de software, la automatización, la física, la investigación y la docencia. Desarrolla productos digitales y sistemas de automatización mientras sigue ampliando su trabajo hacia la inteligencia artificial, el aprendizaje automático, la robótica y la ciencia computacional.",
+        "ソフトウェア開発、自動化、物理学、研究、教育を組み合わせた経歴を持つ。デジタルプロダクトや自動化システムを開発しながら、人工知能、機械学習、ロボティクス、計算科学へと活動の幅を広げている。"
+      ],
+      prof_p2: [
+        "Originally trained in physics and education in Colombia, she later expanded into software development and currently works internationally from Japan.",
+        "Formada originalmente en física y educación en Colombia, amplió después su camino hacia el desarrollo de software y actualmente trabaja a nivel internacional desde Japón.",
+        "コロンビアで物理学と教育を学んだのち、ソフトウェア開発へと領域を広げ、現在は日本から国際的に活動している。"
+      ],
+      g_based: ["BASED IN", "UBICACIÓN", "拠点"],
+      g_based_v: ["Japan", "Japón", "日本"],
+      g_fields: ["FIELDS", "ÁREAS", "分野"],
+      g_fields_v: ["Software · Physics · Education", "Software · Física · Educación", "ソフトウェア · 物理学 · 教育"],
+      g_lang: ["LANGUAGES", "IDIOMAS", "言語"],
+      g_lang_v: ["Spanish · English · Japanese", "Español · Inglés · Japonés", "スペイン語 · 英語 · 日本語"],
+      g_focus: ["FOCUS", "ENFOQUE", "注力分野"],
+      g_focus_v: ["Full-stack · Automation · AI", "Full-stack · Automatización · IA", "フルスタック · 自動化 · AI"],
+
+      /* Experience */
+      sn_exp: ["02 / EXPERIENCE", "02 / EXPERIENCIA", "02 / 職歴"],
+      h_exp: ["Experience", "Experiencia", "職歴"],
+
+      e1_date: ["SEP 2026 — PRESENT", "SEP 2026 — ACTUALIDAD", "2026年9月 — 現在"],
+      e1_title: ["Delta Careers Module Leader", "Líder del módulo Delta Careers", "Delta Careersモジュールリーダー"],
+      e1_org: ["Crimson Education · Contract · Remote", "Crimson Education · Contrato · Remoto", "Crimson Education · 契約 · リモート"],
+      e1_desc: [
+        "Mentors students developing technology-focused projects, guiding project definition, technical planning, implementation and iterative development.",
+        "Mentora a estudiantes que desarrollan proyectos de tecnología y los guía en la definición del proyecto, la planificación técnica, la implementación y el desarrollo iterativo.",
+        "テクノロジー分野のプロジェクトに取り組む学生をメンタリングし、プロジェクトの定義、技術計画、実装、反復的な開発を導いている。"
+      ],
+
+      e2_date: ["MAR 2026 — PRESENT", "MAR 2026 — ACTUALIDAD", "2026年3月 — 現在"],
+      e2_title: ["Software Engineer", "Ingeniera de software", "ソフトウェアエンジニア"],
+      e2_org: ["Dental Care Office · Contract · Remote", "Dental Care Office · Contrato · Remoto", "Dental Care Office · 契約 · リモート"],
+      e2_d1: [
+        "Designed and implemented a modular full-stack system for dental insurance verification using Python, Playwright, FastAPI, React and .NET.",
+        "Diseñó e implementó un sistema full-stack modular para la verificación de seguros dentales con Python, Playwright, FastAPI, React y .NET.",
+        "Python、Playwright、FastAPI、React、.NETを用いて、歯科保険の確認を行うモジュール型フルスタックシステムを設計・実装した。"
+      ],
+      e2_d2: [
+        "Developed backend APIs, automation workflows and structured data pipelines to reduce repetitive manual operations and improve reliability.",
+        "Desarrolló APIs de backend, flujos de automatización y canalizaciones de datos estructurados para reducir tareas manuales repetitivas y mejorar la fiabilidad.",
+        "バックエンドAPI、自動化ワークフロー、構造化データパイプラインを開発し、反復的な手作業を減らして信頼性を高めた。"
+      ],
+
+      e3_date: ["MAR 2022 — APR 2023", "MAR 2022 — ABR 2023", "2022年3月 — 2023年4月"],
+      e3_title: ["International Study", "Estudios internacionales", "海外留学"],
+      e3_org: ["Lumos Language School · Utah, United States", "Lumos Language School · Utah, Estados Unidos", "Lumos Language School · アメリカ、ユタ州"],
+      e3_desc: [
+        "Studied English in the United States while developing professional communication skills in an international environment.",
+        "Estudió inglés en Estados Unidos mientras desarrollaba habilidades de comunicación profesional en un entorno internacional.",
+        "アメリカで英語を学びながら、国際的な環境でプロフェッショナルなコミュニケーション力を培った。"
+      ],
+
+      e4_date: ["AUG 2021 — JAN 2022", "AGO 2021 — ENE 2022", "2021年8月 — 2022年1月"],
+      e4_title: ["Research Assistant", "Asistente de investigación", "研究助手"],
+      e4_desc: [
+        "Worked with Python, MATLAB and Arduino in research and experimental technology projects.",
+        "Trabajó con Python, MATLAB y Arduino en proyectos de investigación y tecnología experimental.",
+        "Python、MATLAB、Arduinoを用いて、研究および実験的技術のプロジェクトに携わった。"
+      ],
+
+      e5_date: ["JUL 2018 — DEC 2021", "JUL 2018 — DIC 2021", "2018年7月 — 2021年12月"],
+      e5_title: ["Research Support", "Apoyo en investigación", "研究サポート"],
+      e5_org: ["Epidemiology Group — Universidad de los Andes", "Grupo de Epidemiología — Universidad de los Andes", "疫学グループ — ロスアンデス大学"],
+      e5_desc: [
+        "Collected, validated and analyzed structured research data, supported epidemiological projects and contributed to research reporting.",
+        "Recopiló, validó y analizó datos de investigación estructurados, apoyó proyectos de epidemiología y contribuyó a los informes de investigación.",
+        "構造化された研究データの収集・検証・分析を行い、疫学プロジェクトを支援し、研究報告に貢献した。"
+      ],
+
+      e6_date: ["MAR 2018 — NOV 2019", "MAR 2018 — NOV 2019", "2018年3月 — 2019年11月"],
+      e6_title: ["Physics Teacher", "Profesora de física", "物理教師"],
+      e6_org: ["Colegio José Manuel Restrepo · Bogotá, Colombia", "Colegio José Manuel Restrepo · Bogotá, Colombia", "Colegio José Manuel Restrepo · コロンビア、ボゴタ"],
+      e6_desc: [
+        "Delivered structured physics lessons and developed learning activities connecting scientific concepts with classroom practice.",
+        "Impartió clases de física estructuradas y desarrolló actividades de aprendizaje que conectaban los conceptos científicos con la práctica en el aula.",
+        "体系的な物理の授業を行い、科学的な概念と教室での実践を結びつける学習活動を開発した。"
+      ],
+
+      /* Projects */
+      sn_proj: ["03 / PROJECTS", "03 / PROYECTOS", "03 / プロジェクト"],
+      h_proj: ["Selected Work", "Trabajos seleccionados", "主な実績"],
+      proj_intro: [
+        "Real products, applications and research. Select a project to open the live system or publication.",
+        "Productos, aplicaciones e investigaciones reales. Selecciona un proyecto para abrir el sistema en vivo o la publicación.",
+        "実際のプロダクト、アプリケーション、研究。プロジェクトを選ぶと、公開中のシステムや論文が開きます。"
+      ],
+      cat1: ["Software & Automation", "Software y automatización", "ソフトウェアと自動化"],
+      cat2: ["Digital Products & Apps", "Productos digitales y apps", "デジタルプロダクトとアプリ"],
+      cat3: ["Research & Physics", "Investigación y física", "研究と物理学"],
+      cat4: ["AI · Machine Learning · Robotics", "IA · Aprendizaje automático · Robótica", "AI · 機械学習 · ロボティクス"],
+
+      p1_tag: ["FULL-STACK · AUTOMATION", "FULL-STACK · AUTOMATIZACIÓN", "フルスタック · 自動化"],
+      p1_d: [
+        "Dental insurance automation platform integrating frontend, APIs and browser automation.",
+        "Plataforma de automatización de seguros dentales que integra frontend, APIs y automatización del navegador.",
+        "フロントエンド、API、ブラウザ自動化を統合した歯科保険の自動化プラットフォーム。"
+      ],
+      p1_a: ["OPEN LIVE SYSTEM →", "ABRIR SISTEMA EN VIVO →", "公開中のシステムを開く →"],
+
+      p2_tag: ["WEB APPLICATION", "APLICACIÓN WEB", "ウェブアプリケーション"],
+      p2_t: ["Business Directory Colombia", "Directorio de negocios Colombia", "コロンビア・ビジネスディレクトリ"],
+      p2_d: [
+        "Searchable digital directory designed to showcase entrepreneurs and their businesses.",
+        "Directorio digital con búsqueda, diseñado para dar visibilidad a emprendedores y sus negocios.",
+        "起業家とそのビジネスを紹介するために設計された、検索可能なデジタルディレクトリ。"
+      ],
+      p2_a: ["OPEN PROJECT →", "ABRIR PROYECTO →", "プロジェクトを開く →"],
+
+      p3_tag: ["INTERACTIVE APPLICATION", "APLICACIÓN INTERACTIVA", "インタラクティブアプリ"],
+      p3_t: ["Adelina Interactive Invitations", "Invitaciones interactivas Adelina", "Adelina インタラクティブ招待状"],
+      p3_d: [
+        "Interactive multilingual invitation system with animated envelopes, RSVP, countdowns, event information and personalized guest experiences.",
+        "Sistema de invitaciones interactivas y multilingües con sobres animados, confirmación de asistencia, cuentas regresivas, información del evento y experiencias personalizadas para cada invitado.",
+        "アニメーション付きの封筒、出欠確認、カウントダウン、イベント情報、ゲストごとの体験を備えた、多言語対応のインタラクティブ招待状システム。"
+      ],
+      p3_a: ["VIEW LIVE INVITATION →", "VER INVITACIÓN EN VIVO →", "公開中の招待状を見る →"],
+
+      p4_tag: ["ADMIN PLATFORM", "PLATAFORMA DE ADMINISTRACIÓN", "管理プラットフォーム"],
+      p4_t: ["Adelina Backoffice", "Adelina Backoffice", "Adelina バックオフィス"],
+      p4_d: [
+        "Administration environment for managing invitations, guests, responses and event information.",
+        "Entorno de administración para gestionar invitaciones, invitados, respuestas e información de eventos.",
+        "招待状、ゲスト、回答、イベント情報を管理するための管理環境。"
+      ],
+      p4_a: ["OPEN BACKOFFICE →", "ABRIR BACKOFFICE →", "バックオフィスを開く →"],
+
+      p5_tag: ["WEB PLATFORM", "PLATAFORMA WEB", "ウェブプラットフォーム"],
+      p5_t: ["Adelina Invitations Platform", "Plataforma Adelina Invitations", "Adelina Invitations プラットフォーム"],
+      p5_d: [
+        "Digital product platform for presenting and organizing invitation designs and services.",
+        "Plataforma de producto digital para presentar y organizar diseños y servicios de invitaciones.",
+        "招待状のデザインとサービスを紹介・整理するためのデジタルプロダクトのプラットフォーム。"
+      ],
+      p5_a: ["VIEW PLATFORM →", "VER PLATAFORMA →", "プラットフォームを見る →"],
+
+      p6_tag: ["INTERACTIVE DESIGN", "DISEÑO INTERACTIVO", "インタラクティブデザイン"],
+      p6_t: ["Halloween Invitation", "Invitación de Halloween", "ハロウィン招待状"],
+      p6_d: [
+        "Themed interactive invitation demonstrating custom visual experiences beyond traditional wedding invitations.",
+        "Invitación interactiva temática que demuestra experiencias visuales personalizadas más allá de las invitaciones de boda tradicionales.",
+        "従来の結婚式の招待状にとどまらない、オリジナルのビジュアル体験を示すテーマ型インタラクティブ招待状。"
+      ],
+      p6_a: ["VIEW DEMO →", "VER DEMO →", "デモを見る →"],
+
+      p7_tag: ["ACADEMIC RESEARCH", "INVESTIGACIÓN ACADÉMICA", "学術研究"],
+      p7_t: ["Physics Education Thesis", "Tesis de educación en física", "物理教育の論文"],
+      p7_d: [
+        "Design of a didactic strategy to encourage autonomous learning in high-school physics classes.",
+        "Diseño de una estrategia didáctica para fomentar el aprendizaje autónomo en las clases de física de secundaria.",
+        "高校の物理の授業で自律的な学びを促すための教授法の設計。"
+      ],
+      p7_a: ["READ PUBLICATION →", "LEER PUBLICACIÓN →", "論文を読む →"],
+
+      p8_tag: ["DEEP LEARNING", "DEEP LEARNING", "ディープラーニング"],
+      p8_t: ["Deep Learning with MATLAB", "Deep Learning con MATLAB", "MATLABによるディープラーニング"],
+      p8_d: [
+        "Completed MathWorks training in deep learning and neural network workflows using MATLAB.",
+        "Completó la formación de MathWorks en deep learning y flujos de trabajo con redes neuronales usando MATLAB.",
+        "MATLABを用いたディープラーニングとニューラルネットワークのワークフローに関するMathWorksの研修を修了した。"
+      ],
+
+      p9_tag: ["COMPUTATIONAL SYSTEMS", "SISTEMAS COMPUTACIONALES", "計算システム"],
+      p9_t: ["Robotics & Scientific Computing", "Robótica y computación científica", "ロボティクスと科学計算"],
+      p9_d: [
+        "Experimental and academic work using Arduino, Python and MATLAB as a foundation for future robotics, AI and computational physics projects.",
+        "Trabajo experimental y académico con Arduino, Python y MATLAB como base para futuros proyectos de robótica, IA y física computacional.",
+        "Arduino、Python、MATLABを用いた実験的・学術的な取り組みで、今後のロボティクス、AI、計算物理プロジェクトの基盤となっている。"
+      ],
+
+      foot_p: ["More source code and experiments", "Más código fuente y experimentos", "その他のソースコードと実験"],
+
+      /* Education */
+      sn_edu: ["04 / EDUCATION", "04 / EDUCACIÓN", "04 / 学歴"],
+      h_edu: ["Education", "Educación", "学歴"],
+      ed1_t: ["Bachelor of Science in Software Development", "Bachelor of Science en Desarrollo de Software", "ソフトウェア開発 理学士"],
+      ed1_d: [
+        "Software development, computer programming and web technologies.",
+        "Desarrollo de software, programación y tecnologías web.",
+        "ソフトウェア開発、プログラミング、ウェブ技術。"
+      ],
+      ed2_t: ["English Studies", "Estudios de inglés", "英語学習"],
+      ed2_d: [
+        "Intensive English study in an international environment.",
+        "Estudio intensivo de inglés en un entorno internacional.",
+        "国際的な環境での集中的な英語学習。"
+      ],
+      ed3_t: ["English Certificate", "Certificado de inglés", "英語修了証"],
+      ed4_t: ["Bachelor's Degree in Physics", "Licenciatura en Física", "物理学士"],
+      ed4_o: ["Universidad Pedagógica Nacional · Bogotá, Colombia", "Universidad Pedagógica Nacional · Bogotá, Colombia", "Universidad Pedagógica Nacional · コロンビア、ボゴタ"],
+      ed4_d: [
+        "Physics, mathematics, pedagogy and science education.",
+        "Física, matemáticas, pedagogía y educación científica.",
+        "物理学、数学、教育学、科学教育。"
+      ],
+      add_h: ["Additional Training", "Formación adicional", "追加の研修"],
+      c1_t: ["Computer Programming Certificate", "Certificado en programación", "プログラミング修了証"],
+
+      /* Contact */
+      sn_contact: ["05 / CONTACT", "05 / CONTACTO", "05 / お問い合わせ"],
+      h_contact: ["Let's build something.", "Construyamos algo juntos.", "一緒に何かをつくりましょう。"],
+      contact_p: [
+        "Available for software development, automation, educational technology and international technology projects.",
+        "Disponible para proyectos de desarrollo de software, automatización, tecnología educativa y tecnología a nivel internacional.",
+        "ソフトウェア開発、自動化、教育テクノロジー、国際的なテクノロジープロジェクトに対応可能です。"
+      ]
+
+    };
+
+
+    /* -------------------------
+       LANGUAGE
+    ------------------------- */
+
+    const langButtons = document.querySelectorAll(".lang-btn");
+    let currentLang = "en";
+
+    function setLang(lang) {
+
+      if (!(lang in LANG_INDEX)) lang = "en";
+
+      currentLang = lang;
+      const idx = LANG_INDEX[lang];
+
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const entry = I[el.dataset.i18n];
+        if (entry) el.textContent = entry[idx];
+      });
+
+      document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+        const entry = I[el.dataset.i18nAria];
+        if (entry) el.setAttribute("aria-label", entry[idx]);
+      });
+
+      document.title = I.title[idx];
+
+      langButtons.forEach(btn => {
+        const active = btn.dataset.lang === lang;
+        btn.classList.toggle("active", active);
+        btn.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+
+      try { localStorage.setItem("lang", lang); } catch (e) {}
+
+    }
+
+    langButtons.forEach(button => {
+      button.addEventListener("click", () => setLang(button.dataset.lang));
+    });
+
+    let startLang = "en";
+    try {
+      const saved = localStorage.getItem("lang");
+      if (saved && saved in LANG_INDEX) startLang = saved;
+    } catch (e) {}
+
+    setLang(startLang);
+
+
+    /* -------------------------
+       MODALS
+    ------------------------- */
+
+    const modalButtons = document.querySelectorAll("[data-modal]");
+    const modals = document.querySelectorAll(".modal");
+    const closeButtons = document.querySelectorAll(".close-modal");
+    let lastTrigger = null;
+
+    function closeAll() {
+      modals.forEach(modal => modal.classList.remove("show"));
+      document.body.classList.remove("modal-open");
+      if (lastTrigger) lastTrigger.focus();
+    }
+
+    modalButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const modal = document.getElementById(button.dataset.modal);
+
+        if (modal) {
+          lastTrigger = button;
+          modal.classList.add("show");
+          document.body.classList.add("modal-open");
+          modal.scrollTop = 0;
+          const close = modal.querySelector(".close-modal");
+          if (close) close.focus();
+        }
+
+      });
+
+    });
+
+    closeButtons.forEach(button => {
+      button.addEventListener("click", closeAll);
+    });
+
+    modals.forEach(modal => {
+      modal.addEventListener("click", event => {
+        if (event.target === modal) closeAll();
+      });
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeAll();
+    });
+
+
+    /* -------------------------
+       WORLD CLOCKS
+    ------------------------- */
+
+    function updateClocks() {
+
+      const now = new Date();
+
+      const fmt = tz => new Intl.DateTimeFormat("en-GB", {
+        timeZone: tz,
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      }).format(now);
+
+      document.getElementById("japanTime").textContent = fmt("Asia/Tokyo");
+      document.getElementById("bogotaTime").textContent = fmt("America/Bogota");
+      document.getElementById("utahTime").textContent = fmt("America/Denver");
+
+    }
+
+    updateClocks();
+    setInterval(updateClocks, 30000);
+
+
+    /* -------------------------
+       CHAINS: hileras de puntos
+       que se persiguen en círculos
+    ------------------------- */
+
+    (function () {
+
+      const hero = document.getElementById("hero");
+      const cv = document.getElementById("chains");
+      const ctx = cv.getContext("2d");
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      let W = 0, H = 0;
+      const mouse = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5 };
+
+      const chains = [
+        { kind: "circle",  r: 0.16, speed:  1.00, color: [243, 160, 187] },
+        { kind: "circle",  r: 0.26, speed: -0.80, color: [244, 182, 41]  },
+        { kind: "circle",  r: 0.36, speed:  0.62, color: [0, 217, 199]   },
+        { kind: "circle",  r: 0.46, speed: -0.50, color: [125, 92, 255]  },
+        { kind: "ellipse", rx: 0.46, ry: 0.27, tilt:  0.45, speed:  0.55, color: [52, 120, 255]  },
+        { kind: "ellipse", rx: 0.40, ry: 0.36, tilt: -0.55, speed: -0.45, color: [255, 52, 120] }
+      ];
+
+      const DOTS = 20;
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        W = hero.clientWidth;
+        H = hero.clientHeight;
+        cv.width = W * dpr;
+        cv.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        if (reduce) draw(0);
+      }
+
+      function dot(x, y, rad, c, a) {
+        const g = ctx.createRadialGradient(x, y, 0, x, y, rad * 3.2);
+        g.addColorStop(0, "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + a + ")");
+        g.addColorStop(0.3, "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + (a * 0.55) + ")");
+        g.addColorStop(1, "rgba(" + c[0] + "," + c[1] + "," + c[2] + ",0)");
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(x, y, rad * 3.2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      function draw(t) {
+
+        mouse.x += (mouse.tx - mouse.x) * 0.04;
+        mouse.y += (mouse.ty - mouse.y) * 0.04;
+
+        ctx.globalCompositeOperation = "source-over";
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, W, H);
+        ctx.globalCompositeOperation = "lighter";
+
+        const m = Math.min(W, H);
+        const cx = W * 0.5 + (mouse.x - 0.5) * W * 0.06;
+        const cy = H * 0.5 + (mouse.y - 0.5) * H * 0.06;
+        const spacing = m * 0.045;
+        const head = Math.max(5, m * 0.014);
+
+        chains.forEach(ch => {
+
+          let rx, ry;
+          const tilt = ch.tilt || 0;
+
+          if (ch.kind === "circle") { rx = ry = ch.r * m; }
+          else { rx = ch.rx * W; ry = ch.ry * H; }
+
+          const gap = spacing / Math.max(rx, ry);
+          const dir = ch.speed < 0 ? -1 : 1;
+          const base = ch.speed * t;
+          const ct = Math.cos(tilt), st = Math.sin(tilt);
+
+          for (let i = DOTS - 1; i >= 0; i--) {
+            const ang = base - dir * i * gap;
+            const ex = rx * Math.cos(ang);
+            const ey = ry * Math.sin(ang);
+            const x = cx + ex * ct - ey * st;
+            const y = cy + ex * st + ey * ct;
+            const f = 1 - i / DOTS;
+            dot(x, y, head * (0.25 + 0.75 * f), ch.color, 0.25 + 0.65 * f);
+          }
+
+        });
+
+      }
+
+      let running = true;
+
+      function frame(now) {
+        if (!running) return;
+        draw(now / 1000);
+        requestAnimationFrame(frame);
+      }
+
+      window.addEventListener("resize", resize);
+
+      if ("ResizeObserver" in window) {
+        new ResizeObserver(resize).observe(hero);
+      }
+
+      window.addEventListener("pointermove", e => {
+        mouse.tx = e.clientX / window.innerWidth;
+        mouse.ty = e.clientY / window.innerHeight;
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        running = !document.hidden;
+        if (running && !reduce) requestAnimationFrame(frame);
+      });
+
+      resize();
+
+      if (reduce) { draw(0); }
+      else { requestAnimationFrame(frame); }
+
+    })();
+
+  </script>
+
+</body>
+</html>
